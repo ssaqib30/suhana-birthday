@@ -1,7 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#160b18">
+<title>For Suhana ❤️ — From Saqib</title>
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family: Georgia, "Times New Roman", serif;
+    background:#100910;
+    color:#fff7fb;
+    overflow-x:hidden;
+  }
+  button,a{font:inherit}
+  .page{
+    min-height:100svh;
+    position:relative;
+    overflow:hidden;
+  }
+  .stars,.hearts{position:absolute;inset:0;pointer-events:none}
+  .stars{
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,.85) 0 1px, transparent 2px),
+      radial-gradient(circle at 80% 15%, rgba(255,210,235,.7) 0 1px, transparent 2px),
+      radial-gradient(circle at 60% 65%, rgba(255,255,255,.7) 0 1px, transparent 2px),
+      radial-gradient(circle at 30% 80%, rgba(255,210,235,.6) 0 1px, transparent 2px);
+    background-size:180px 180px,230px 230px,260px 260px,210px 210px;
+    opacity:.65;
+  }
+  .glow{
+    position:absolute;width:65vw;height:65vw;max-width:520px;max-height:520px;
+    border-radius:50%;filter:blur(70px);opacity:.22;
+    background:#ff4f9a;left:50%;top:15%;transform:translateX(-50%);
+  }
+  .opening{
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;
+    background:radial-gradient(circle at 50% 40%, #3b1733 0%, #170b19 45%, #090609 100%);
+  }
+  .opening-card{position:relative;z-index:2;max-width:520px}
+  .small{letter-spacing:3px;text-transform:uppercase;font-size:.72rem;color:#e8b7d1}
+  h1{font-size:clamp(2.6rem,12vw,5.8rem);line-height:.95;margin:14px 0}
+  .script{font-style:italic;color:#ffd6e8}
+  .open-btn{
+    border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.09);
+    color:#fff;padding:15px 25px;border-radius:999px;cursor:pointer;
+    box-shadow:0 0 30px rgba(255,72,154,.22);transition:.3s;
+  }
+  .open-btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.14)}
+  .hint{margin-top:15px;font-size:.8rem;color:#cbaabd}
+  .hidden{display:none!important}
+  .content{background:linear-gradient(#120a12,#1b0d18 55%,#0d070e)}
+  section{padding:78px 20px;max-width:900px;margin:auto;position:relative}
+  .center{text-align:center}
+  .eyebrow{color:#eaa9c7;font-size:.78rem;letter-spacing:2px;text-transform:uppercase}
+  h2{font-size:clamp(2rem,8vw,3.8rem);margin:10px 0 18px}
+  .lead{font-size:1.05rem;line-height:1.8;color:#f5dce8}
+  .divider{width:80px;height:1px;background:#b96a91;margin:28px auto}
+  .photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+  .photo{
+    border-radius:20px;overflow:hidden;background:#261321;
+    box-shadow:0 18px 45px rgba(0,0,0,.35);
+  }
+  .photo img{width:100%;height:330px;object-fit:cover;display:block}
+  .photo:first-child{grid-column:span 2}
+  .photo:first-child img{height:520px}
+  .memory-note{padding:18px 4px 4px;text-align:center;color:#d8b8c8;font-style:italic}
+  .message{
+    background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
+    border-radius:28px;padding:28px 22px;box-shadow:0 20px 60px rgba(0,0,0,.22);
+  }
+  .message p{line-height:1.9;font-size:1rem;color:#f8e7ef;margin:0 0 18px}
+  .message p:last-child{margin-bottom:0}
+  .highlight{color:#ffd0e3;font-weight:bold}
+  .dua{
+    padding:25px;border-left:2px solid #d979a5;background:rgba(255,91,160,.06);
+    border-radius:0 18px 18px 0;margin:25px 0;color:#ffe1ed;line-height:1.9;
+  }
+  .song{
+    text-align:center;padding:36px 22px;border-radius:28px;
+    background:linear-gradient(145deg,rgba(255,78,151,.13),rgba(255,255,255,.04));
+    border:1px solid rgba(255,255,255,.1);
+  }
+  .vinyl{
+    width:120px;height:120px;border-radius:50%;margin:0 auto 20px;
+    background:repeating-radial-gradient(circle,#111 0 4px,#292029 5px 6px);
+    border:8px solid #2c1725;display:flex;align-items:center;justify-content:center;
+    animation:spin 8s linear infinite;
+  }
+  .vinyl span{width:28px;height:28px;border-radius:50%;background:#f1a3c5;display:block}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .song a{
+    display:inline-block;margin-top:18px;padding:13px 20px;border-radius:999px;
+    background:#ffd2e4;color:#321224;text-decoration:none;font-weight:bold;
+  }
+  .final{
+    min-height:85svh;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:radial-gradient(circle at 50% 45%,#451b39,#140a13 60%,#090609);
+  }
+  .final-card{max-width:650px}
+  .forever{font-size:clamp(2.2rem,9vw,5rem);line-height:1.05;margin:18px 0}
+  .signature{margin-top:35px;color:#e9b5cd}
+  .floating-heart{
+    position:fixed;bottom:-30px;left:var(--x);font-size:var(--s);
+    animation:floatUp var(--d) linear forwards;pointer-events:none;z-index:10;
+  }
+  @keyframes floatUp{
+    0%{transform:translateY(0) scale(.7);opacity:0}
+    15%{opacity:.85}
+    100%{transform:translateY(-110vh) translateX(var(--dx)) scale(1.15);opacity:0}
+  }
+  .fade{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+  .fade.show{opacity:1;transform:none}
+  @media(max-width:520px){
+    section{padding:62px 16px}
+    .photo img{height:250px}
+    .photo:first-child img{height:430px}
+    .message{padding:23px 18px}
+  }
+</style>
+</head>
+<body>
 
-A little surprise from Saqib
-For Suhana ❤️
-I made this little corner of the internet just for you.
+<div id="opening" class="page opening">
+  <div class="stars"></div><div class="glow"></div>
+  <div class="opening-card">
+    <div class="small">A little surprise from Saqib</div>
+    <h1>For <span class="script">Suhana</span> ❤️</h1>
+    <p class="lead">I made this little corner of the internet just for you.</p>
+    <button class="open-btn" onclick="openLetter()">Tap to open your birthday surprise 🎁</button>
+    <div class="hint">Put on your earphones 🎧</div>
+  </div>
+</div>
 
-Tap to open your birthday surprise 🎁
-Put on your earphones 🎧
+<main id="content" class="content hidden">
+  <section class="center fade">
+    <div class="eyebrow">August 29 • Your special day</div>
+    <h2>Happy Birthday,<br><span class="script">my love</span> ❤️</h2>
+    <div class="divider"></div>
+    <p class="lead">Alhamdulillah, today I just feel so grateful to Allah for bringing you into my life. This is our <span class="highlight">second birthday together</span>, and honestly, it feels so special to me. 🥹❤️</p>
+  </section>
+
+  <section class="fade">
+    <div class="photo-grid">
+      <div class="photo"><img src="memory-1.jpg" alt="Suhana and Saqib together"></div>
+      <div class="photo"><img src="memory-2.jpg" alt="A memory of Suhana and Saqib"></div>
+      <div class="photo"><img src="memory-3.jpg" alt="A memory together"></div>
+      <div class="photo"><img src="memory-4.jpg" alt="A memory together"></div>
+      <div class="photo"><img src="memory-5.jpg" alt="A memory together"></div>
+      <div class="photo"><img src="memory-6.jpg" alt="A memory together"></div>
+      <div class="photo"><img src="memory-7.jpg" alt="A memory together"></div>
+      <div class="photo"><img src="memory-8.jpg" alt="A memory together"></div>
+    </div>
+    <div class="memory-note">Some moments I never want to forget. ❤️</div>
+  </section>
+
+  <section class="fade">
+    <div class="eyebrow">A letter for you</div>
+    <h2>From my heart. 💌</h2>
+    <div class="message">
+      <p>We’ve shared so many moments together—good days, bad days, little fights, misunderstandings, laughter, and beautiful memories. But through everything, <span class="highlight">you stayed</span>, and that means more to me than I can explain. 🥹❤️</p>
+      <p>Thank you for being there for me, for understanding me, for loving me, and simply for being you. You have become such an important part of my life, and I genuinely don’t want you to be just a chapter in my story. <span class="highlight">I want you to be my future. ❤️</span></p>
+      <div class="dua">
+        I don't know what Allah has written in our <span class="highlight">naseeb</span>, but I always make one special <span class="highlight">dua</span>—that if we are meant for each other, Allah keeps us together, protects our relationship, makes our journey easy, and one day brings us together in <span class="highlight">nikah</span>. 🤲🏻❤️
+      </div>
+      <p>I want to grow with you, make memories with you, support you through every phase of life, and be the person you can always count on. And InshaAllah, one day I want to proudly say, <span class="highlight">“She is my wife!!”</span> 🥹❤️</p>
+      <p>On your special day, I pray Allah gives you endless happiness, success, peace, good health, and everything your <span class="highlight">dil</span> wishes for. May Allah always protect that beautiful smile of yours. 🤲🏻❤️</p>
+      <p>And no matter how many birthdays come, I hope I’m still right beside you, celebrating every single one with you.</p>
+      <p class="center"><span class="highlight">Happy Birthday, meri jaan. ❤️🎂</span></p>
+    </div>
+  </section>
+
+  <section class="fade">
+    <div class="song">
+      <div class="eyebrow">Our song 🎧</div>
+      <div class="vinyl"><span></span></div>
+      <h2 style="font-size:2rem;margin-bottom:8px">Jo Tum Mere Ho</h2>
+      <p class="lead">“Jo tum mere ho, toh main kuch nahin maangoon duniya se.” ❤️</p>
+      <p style="color:#cdb1c0;line-height:1.7">This part always reminds me that sometimes having the right person is enough.</p>
+      <a href="https://www.youtube.com/watch?v=ilNt2bikxDI" target="_blank" rel="noopener">▶ Play our song</a>
+    </div>
+  </section>
+
+  <section class="final fade">
+    <div class="final-card">
+      <div class="eyebrow">One last thing...</div>
+      <div class="forever">Alhamdulillah for you.<br>Alhamdulillah for us.<br><span class="script">InshaAllah, for a lifetime together.</span> ❤️</div>
+      <p class="lead">I love you so much. 🫶🏻❤️</p>
+      <div class="signature">— Saqib</div>
+    </div>
+  </section>
+</main>
+
+<script>
+function openLetter(){
+  document.getElementById('opening').classList.add('hidden');
+  document.getElementById('content').classList.remove('hidden');
+  document.body.style.overflowX='hidden';
+  window.scrollTo(0,0);
+  document.querySelectorAll('.fade').forEach((el,i)=>setTimeout(()=>el.classList.add('show'),150+i*120));
+  for(let i=0;i<22;i++) setTimeout(makeHeart,i*120);
+}
+function makeHeart(){
+  const h=document.createElement('div');
+  h.className='floating-heart';
+  h.textContent=['❤️','💕','💗','💖','🤍'][Math.floor(Math.random()*5)];
+  h.style.setProperty('--x',Math.random()*100+'vw');
+  h.style.setProperty('--s',(16+Math.random()*22)+'px');
+  h.style.setProperty('--d',(5+Math.random()*5)+'s');
+  h.style.setProperty('--dx',(-70+Math.random()*140)+'px');
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),11000);
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
