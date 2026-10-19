@@ -2,636 +2,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffe6ef">
-    <title>For you, Suhana ♡</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<title>For you maa Suhana ♡</title>
 
-    <style>
-        :root {
-            --pink: #ffe6ef;
-            --rose: #d85b83;
-            --dark-rose: #963956;
-            --cream: #fffafd;
-            --text: #603447;
-            --border: #f1c4d3;
-        }
+<style>
+:root {
+  --pink: #e75480;
+  --deep: #873b59;
+  --paper: #fffafd;
+  --background: #fff0f5;
+}
+* { box-sizing: border-box; }
 
-        * {
-            box-sizing: border-box;
-        }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #633b4a;
+  background: radial-gradient(circle at top, #fffafd, #ffe3ed 65%, #ffd5e5);
+  overflow-x: hidden;
+}
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: Georgia, "Times New Roman", serif;
-            color: var(--text);
-            background:
-                radial-gradient(circle at top, #fffafd, transparent 55%),
-                linear-gradient(135deg, #fff2f7, #ffdce8, #ffeef4);
-            overflow-x: hidden;
-        }
+.petal {
+  position: fixed;
+  top: -30px;
+  z-index: 0;
+  pointer-events: none;
+  color: #e98bab;
+  animation: fall linear infinite;
+  opacity: .6;
+}
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(480deg); }
+}
 
-        button, input, textarea {
-            font: inherit;
-        }
+main {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 92%);
+  margin: 0 auto;
+  padding: 42px 0;
+}
 
-        button {
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+.card {
+  padding: clamp(22px, 5vw, 42px);
+  background: rgba(255, 250, 253, .94);
+  border: 1px solid #f7c9da;
+  border-radius: 25px;
+  box-shadow: 0 18px 55px #a84b6d18;
+  text-align: center;
+}
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px #c75a7b24;
-        }
+.heart {
+  font-size: 65px;
+  display: inline-block;
+  animation: heartbeat 1.5s infinite;
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.13); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+}
 
-        .petals {
-            position: fixed;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: 0;
-        }
+h1 {
+  font-size: clamp(2rem, 7vw, 3.1rem);
+  color: var(--pink);
+  margin: 12px 0;
+}
+.intro {
+  line-height: 1.8;
+  white-space: pre-line;
+}
+button {
+  border: 0;
+  border-radius: 30px;
+  padding: 13px 21px;
+  margin: 7px 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--pink);
+  color: white;
+  font-family: inherit;
+  box-shadow: 0 5px 15px #e7548030;
+}
+button.secondary {
+  background: #fff0f5;
+  color: var(--deep);
+  border: 1px solid #f3c2d4;
+}
+button:hover { transform: translateY(-1px); }
 
-        .petal {
-            position: absolute;
-            top: -35px;
-            width: 13px;
-            height: 19px;
-            background: #ed91b0;
-            border-radius: 100% 0 100% 0;
-            opacity: 0.6;
-            animation: falling linear infinite;
-        }
-
-        @keyframes falling {
-            0% {
-                transform: translate3d(0, -30px, 0) rotate(0deg);
-            }
-            100% {
-                transform: translate3d(45px, 110vh, 0) rotate(650deg);
-            }
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            width: min(900px, 92%);
-            margin: auto;
-            padding: 35px 0 25px;
-        }
-
-        .card {
-            padding: clamp(22px, 5vw, 48px);
-            border: 1px solid #ffffffc9;
-            border-radius: 28px;
-            background: #fffafdE8;
-            box-shadow: 0 18px 60px #a3426415;
-            text-align: center;
-            backdrop-filter: blur(8px);
-        }
-
-        .heart-area {
-            height: 175px;
-            display: grid;
-            place-items: center;
-        }
-
-        .heart {
-            font-size: clamp(90px, 20vw, 135px);
-            color: #e45c87;
-            line-height: 1;
-            text-shadow: 0 8px 30px #e45c8740;
-            animation: bloom 2.3s ease-in-out infinite alternate;
-        }
-
-        @keyframes bloom {
-            from {
-                transform: scale(0.82) rotate(-7deg);
-            }
-            to {
-                transform: scale(1.08) rotate(7deg);
-            }
-        }
-
-        .eyebrow {
-            margin: 10px 0;
-            color: #bd6685;
-            font: 0.75rem Arial, sans-serif;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            margin: 12px 0;
-            color: var(--dark-rose);
-            font-size: clamp(2.1rem, 7vw, 3.8rem);
-            font-weight: normal;
-            overflow-wrap: anywhere;
-        }
-
-        h2 {
-            color: var(--dark-rose);
-            font-weight: normal;
-            font-size: clamp(1.7rem, 5vw, 2.5rem);
-        }
-
-        .intro {
-            max-width: 620px;
-            margin: 18px auto 28px;
-            line-height: 1.9;
-            font-size: 1.1rem;
-            white-space: pre-wrap;
-            overflow-wrap: anywhere;
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 22px;
-        }
-
-        .btn {
-            padding: 13px 22px;
-            border: none;
-            border-radius: 999px;
-            color: white;
-            background: var(--rose);
-            box-shadow: 0 5px 15px #d85b8329;
-        }
-
-        .btn.secondary {
-            color: var(--dark-rose);
-            background: white;
-            border: 1px solid var(--border);
-        }
-
-        .btn.danger {
-            background: #8f5266;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .letter {
-            padding: clamp(20px, 4vw, 38px);
-            border: 1px solid #f3d4df;
-            border-radius: 20px;
-            background: #fffefe;
-            text-align: left;
-            font-size: 1.08rem;
-            line-height: 1.95;
-            white-space: pre-wrap;
-            overflow-wrap: anywhere;
-        }
-
-        .signature {
-            margin-top: 22px;
-            text-align: right;
-            font-style: italic;
-            white-space: pre-wrap;
-            overflow-wrap: anywhere;
-        }
-
-        .editor {
-            text-align: left;
-        }
-
-        .editor-description {
-            font: 0.95rem/1.7 Arial, sans-serif;
-            color: #80566a;
-        }
-
-        label {
-            display: block;
-            margin: 17px 0 7px;
-            font-weight: bold;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px 14px;
-            color: var(--text);
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            outline: none;
-        }
-
-        input:focus, textarea:focus {
-            border-color: var(--rose);
-            box-shadow: 0 0 0 3px #d85b8318;
-        }
-
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-            line-height: 1.7;
-        }
-
-        #editLetter {
-            min-height: 280px;
-        }
-
-        .preview {
-            margin-top: 28px;
-            padding: 20px;
-            border: 1px dashed #e4a9be;
-            border-radius: 18px;
-            background: #fff5f9;
-        }
-
-        .preview h3 {
-            margin-top: 0;
-            color: var(--dark-rose);
-            font-weight: normal;
-        }
-
-        .preview-text {
-            white-space: pre-wrap;
-            overflow-wrap: anywhere;
-            line-height: 1.8;
-        }
-
-        .save-note {
-            font: 0.85rem/1.6 Arial, sans-serif;
-            color: #80566a;
-            text-align: center;
-            margin-top: 18px;
-        }
-
-        footer {
-            padding: 22px 0 5px;
-            color: #99536e;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 520px) {
-            .container {
-                width: 94%;
-                padding-top: 18px;
-            }
-
-            .card {
-                padding: 22px 16px;
-                border-radius: 22px;
-            }
-
-            .heart-area {
-                height: 145px;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .button-group {
-                gap: 9px;
-            }
-
-            .letter {
-                padding: 18px;
-                font-size: 1rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-            }
-        }
-    </style>
+#letterSection {
+  display: none;
+  margin-top: 28px;
+  text-align: left;
+  animation: appear .7s ease;
+}
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.letter-paper {
+  padding: clamp(20px, 5vw, 34px);
+  background: var(--paper);
+  border: 1px solid #f4d5e0;
+  border-radius: 18px;
+  line-height: 1.95;
+  overflow-wrap: anywhere;
+}
+#letterHeading {
+  text-align: center;
+  color: var(--pink);
+  font-size: 1.6rem;
+}
+#letterText {
+  white-space: pre-line;
+}
+.signature {
+  margin-top: 24px;
+  text-align: right;
+  font-style: italic;
+  color: var(--deep);
+}
+.editor {
+  display: none;
+  text-align: left;
+  margin-top: 28px;
+  padding: 24px;
+  background: #fff4f8;
+  border: 1px solid #f2c8d8;
+  border-radius: 18px;
+}
+.editor h2 { color: var(--pink); }
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+input, textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  border: 1px solid #e9b8cb;
+  border-radius: 10px;
+  font: inherit;
+  color: #633b4a;
+  background: white;
+}
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+.note {
+  font-size: .9rem;
+  line-height: 1.6;
+  color: #865c6b;
+}
+footer {
+  text-align: center;
+  font-size: .9rem;
+  margin-top: 22px;
+  opacity: .8;
+}
+</style>
 </head>
 
 <body>
-    <div class="petals" id="petals" aria-hidden="true"></div>
+<main>
+  <section class="card">
+    <div class="heart">♡</div>
+    <h1 id="openingTitle">For you maa Suhana ♡</h1>
+    <p class="intro" id="openingIntro"></p>
 
-    <main class="container">
+    <button id="openButton">Open my heart ♡</button>
 
-        <!-- OPENING PAGE -->
-        <section class="card" id="opening">
-            <div class="heart-area">
-                <div class="heart" aria-hidden="true">♥</div>
-            </div>
+    <section id="letterSection">
+      <article class="letter-paper">
+        <h2 id="letterHeading"></h2>
+        <div id="letterText"></div>
+        <div class="signature" id="signature"></div>
+      </article>
+    </section>
 
-            <p class="eyebrow">A little note from my heart</p>
+    <div style="margin-top:20px">
+      <button class="secondary" id="editorButton">Edit my message ✍️</button>
+    </div>
 
-            <h1 id="openingTitle">For you, Suhana ♡</h1>
+    <section class="editor" id="editor">
+      <h2>Make it yours ♡</h2>
+      <p class="note">
+        Edit the text below to preview your changes. These edits are saved
+        only in this browser. To publish a message for everyone, update the
+        original text in index.html on GitHub and commit the changes.
+      </p>
 
-            <p class="intro" id="openingIntro">Some feelings deserve their own little place.
-Take a quiet moment, and open this when you're ready. 💗</p>
+      <label for="titleInput">Opening title</label>
+      <input id="titleInput">
 
-            <div class="button-group">
-                <button class="btn" id="openButton">Open my heart ♡</button>
-                <button class="btn secondary" id="editButton">Edit my message ✍️</button>
-            </div>
-        </section>
+      <label for="introInput">Opening introduction</label>
+      <textarea id="introInput"></textarea>
 
-        <!-- LETTER PAGE -->
-        <section class="card hidden" id="letterPage">
-            <p class="eyebrow">Written just for you</p>
+      <label for="headingInput">Letter heading</label>
+      <input id="headingInput">
 
-            <h2 id="letterHeading">A Little Message From My Heart to You</h2>
+      <label for="letterInput">Complete letter</label>
+      <textarea id="letterInput" style="min-height:280px"></textarea>
 
-            <div class="letter" id="letterText"></div>
+      <label for="signatureInput">Sign-off</label>
+      <input id="signatureInput">
 
-            <div class="signature" id="signature"></div>
+      <button id="saveButton">Save changes ♡</button>
+      <button class="secondary" id="previewButton">Preview full letter</button>
+      <button class="secondary" id="restoreButton">Restore published message</button>
+      <p class="note" id="saveStatus" aria-live="polite"></p>
+    </section>
+  </section>
 
-            <div class="button-group">
-                <button class="btn secondary" id="letterEditButton">
-                    Edit my message ✍️
-                </button>
-                <button class="btn" id="backButton">
-                    Back to the beginning ♡
-                </button>
-            </div>
-        </section>
+  <footer>Made with love, just for you ♡</footer>
+</main>
 
-        <!-- EDITOR PAGE -->
-        <section class="card editor hidden" id="editorPage">
-            <h2 style="text-align:center">Make it yours ♡</h2>
+<script>
+"use strict";
 
-            <p class="editor-description">
-                Change any text below. The preview updates as you type.
-                Save your changes to keep them in this browser.
-            </p>
+/* PUBLISHED DEFAULT MESSAGE — this appears on every device. */
+const original = {
+  title: "For you maa Suhana ♡",
 
-            <label for="editTitle">Opening title</label>
-            <input id="editTitle" type="text">
+  intro: "Some feelings deserve their own little place. I know you're not getting a phone, but please take a quiet moment and open this when you're ready 💗",
+
+  heading: "I think you're okay ❤️",
+
+  letter: `Assalamualaikum ❤️
+
+First, I'm sorry. I'm sorry I've been so busy with my studies lately and that we haven't talked as much as before. In the beginning, I miss our old days, and I miss you a lot, more than I always know how to say.
 
-            <label for="editIntro">Opening introduction</label>
-            <textarea id="editIntro"></textarea>
-
-            <label for="editHeading">Letter heading</label>
-            <input id="editHeading" type="text">
-
-            <label for="editLetter">Complete letter</label>
-            <textarea id="editLetter"></textarea>
-
-            <label for="editSignature">Sign-off</label>
-            <input id="editSignature" type="text">
-
-            <!-- LIVE PREVIEW -->
-            <div class="preview">
-                <h3>Live preview ♡</h3>
-
-                <p><strong>Opening title:</strong></p>
-                <div class="preview-text" id="previewTitle"></div>
-
-                <p><strong>Introduction:</strong></p>
-                <div class="preview-text" id="previewIntro"></div>
-
-                <hr style="border:0;border-top:1px solid #f1c4d3;margin:20px 0">
-
-                <h3 id="previewHeading"></h3>
-                <div class="preview-text" id="previewLetter"></div>
-
-                <p class="signature" id="previewSignature"></p>
-            </div>
-
-            <div class="button-group">
-                <button class="btn" id="saveButton">Save changes ♡</button>
-                <button class="btn secondary" id="previewButton">
-                    Preview full letter
-                </button>
-                <button class="btn danger" id="restoreButton">
-                    Restore original
-                </button>
-                <button class="btn secondary" id="cancelButton">
-                    Cancel
-                </button>
-            </div>
-
-            <p class="save-note">
-                Saved edits stay in this browser on this device.
-                They do not automatically update the online GitHub Pages website.
-            </p>
-        </section>
-
-        <footer>Made with love, just for you ♡</footer>
-    </main>
-
-    <script>
-        // ORIGINAL MESSAGE
-        // You can change the default text here too.
-
-        const original = {
-            title: "For you, Suhana ♡",
-
-            intro: "Some feelings deserve their own little place.\nTake a quiet moment, and open this when you're ready. 💗",
-
-            heading: "A Little Message From My Heart to You",
-
-            letter: `Suhana, ❤️
-
-I wanted to tell you something honestly, from my heart.
-
-I'm sorry if I've been busy with my studies lately or if I haven't been able to give you as much time as you deserve. I'm trying hard to focus on my exams and build a better future. Sometimes I get caught up in everything I'm trying to achieve, but that doesn't mean I miss you any less.
-
-I miss you, even on the busiest days. You have a special place in my heart, and being busy doesn't mean I've forgotten you.
-
-Right now, I'm in my building phase. I'm learning, studying, and trying to become someone who can stand strong and create a better life. I know I still have a lot to achieve, but I hope that one day, InshaAllah, all this hard work will help me build a beautiful future.
-
-I pray that Allah keeps you happy, protects your smile, gives you peace, and puts barakah in everything you do. May Allah guide both of us toward what is best for us.
-
-If you are written in my naseeb, may Allah make our path easy. And if Allah wills, may we one day reach nikah in the most beautiful and blessed way. Ameen. 🤲🏻
-
-Until then, please understand that even when I'm busy, you are not forgotten. I can't promise that every day will be perfect, but I want to keep learning, growing, being honest with you, and putting effort into the future I'm working toward.
-
-Thank you for being you, Suhana. May Allah always protect you and keep that beautiful smile on your face. ❤️`,
-
-            signature: "With love, and a prayer for our future ♡"
-        };
-
-        let current = { ...original };
-
-        const $ = (id) => document.getElementById(id);
-
-        // DISPLAY THE CURRENT MESSAGE
-        function render() {
-            $("openingTitle").textContent = current.title;
-            $("openingIntro").textContent = current.intro;
-            $("letterHeading").textContent = current.heading;
-            $("letterText").textContent = current.letter;
-            $("signature").textContent = current.signature;
-        }
-
-        // COPY THE CURRENT MESSAGE INTO THE EDITOR
-        function fillEditor() {
-            $("editTitle").value = current.title;
-            $("editIntro").value = current.intro;
-            $("editHeading").value = current.heading;
-            $("editLetter").value = current.letter;
-            $("editSignature").value = current.signature;
-
-            updateLivePreview();
-        }
-
-        // READ THE TEXT THE USER HAS EDITED
-        function readEditor() {
-            current = {
-                title: $("editTitle").value,
-                intro: $("editIntro").value,
-                heading: $("editHeading").value,
-                letter: $("editLetter").value,
-                signature: $("editSignature").value
-            };
-
-            render();
-        }
-
-        // LIVE PREVIEW UPDATES WHILE TYPING
-        function updateLivePreview() {
-            $("previewTitle").textContent = $("editTitle").value;
-            $("previewIntro").textContent = $("editIntro").value;
-            $("previewHeading").textContent = $("editHeading").value;
-            $("previewLetter").textContent = $("editLetter").value;
-            $("previewSignature").textContent = $("editSignature").value;
-        }
-
-        // SWITCH BETWEEN PAGES
-        function showPage(pageId) {
-            ["opening", "letterPage", "editorPage"].forEach(id => {
-                $(id).classList.toggle("hidden", id !== pageId);
-            });
-
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-
-        function openLetter() {
-            render();
-            showPage("letterPage");
-        }
-
-        function showEditor() {
-            fillEditor();
-            showPage("editorPage");
-        }
-
-        function goHome() {
-            showPage("opening");
-        }
-
-        // SAVE EDITED TEXT IN THIS BROWSER
-        function saveChanges() {
-            readEditor();
-
-            try {
-                localStorage.setItem(
-                    "suhanaLoveNote",
-                    JSON.stringify(current)
-                );
-
-                showPage("opening");
-                alert("Your changes have been saved! ♡");
-            } catch (error) {
-                alert(
-                    "The browser could not save your changes. " +
-                    "Try opening this file in a regular browser window."
-                );
-            }
-        }
-
-        // RESTORE THE ORIGINAL MESSAGE
-        function restoreOriginal() {
-            const confirmed = confirm(
-                "Restore the original message? Your saved edits will be replaced."
-            );
-
-            if (!confirmed) return;
-
-            current = { ...original };
-
-            try {
-                localStorage.removeItem("suhanaLoveNote");
-            } catch (error) {
-                // The original message can still be restored for this session.
-            }
-
-            fillEditor();
-            render();
-            alert("Original message restored! ♡");
-        }
-
-        // BUTTON EVENTS
-        $("openButton").addEventListener("click", openLetter);
-        $("editButton").addEventListener("click", showEditor);
-        $("letterEditButton").addEventListener("click", showEditor);
-        $("backButton").addEventListener("click", goHome);
-        $("cancelButton").addEventListener("click", goHome);
-        $("saveButton").addEventListener("click", saveChanges);
-
-        $("previewButton").addEventListener("click", () => {
-            readEditor();
-            openLetter();
-        });
-
-        $("restoreButton").addEventListener("click", restoreOriginal);
-
-        // CONNECT ALL EDITOR FIELDS TO THE LIVE PREVIEW
-        [
-            "editTitle",
-            "editIntro",
-            "editHeading",
-            "editLetter",
-            "editSignature"
-        ].forEach(id => {
-            $(id).addEventListener("input", updateLivePreview);
-        });
-
-        // LOAD SAVED TEXT, IF AVAILABLE
-        try {
-            const saved = localStorage.getItem("suhanaLoveNote");
-
-            if (saved) {
-                const parsed = JSON.parse(saved);
-
-                if (parsed && typeof parsed === "object" &&
-                    !Array.isArray(parsed)) {
-                    current = {
-                        ...original,
-                        ...Object.fromEntries(
-                            Object.keys(original)
-                                .filter(key =>
-                                    typeof parsed[key] === "string"
-                                )
-                                .map(key => [key, parsed[key]])
-                        )
-                    };
-                }
-            }
-        } catch (error) {
-            current = { ...original };
-        }
-
-        render();
-
-        // CREATE SOFTLY FALLING PETALS
-        const petalContainer = $("petals");
-
-        for (let i = 0; i < 25; i++) {
-            const petal = document.createElement("span");
-            petal.className = "petal";
-
-            petal.style.left = Math.random() * 100 + "%";
-            petal.style.animationDuration =
-                (9 + Math.random() * 12) + "s";
-            petal.style.animationDelay =
-                (-Math.random() * 18) + "s";
-            petal.style.opacity =
-                (0.2 + Math.random() * 0.5).toString();
-            petal.style.transform =
-                "scale(" + (0.5 + Math.random() * 0.8) + ")";
-
-            petalContainer.appendChild(petal);
-        }
-    </script>
+Right now, I'm in my building phase. I'm working on myself, my studies, and our future. I'm not trying to become a stranger to you; I'm trying to become a better version of myself 🤍
+
+When I think about the future, I make dua that Allah guides us toward what is best for both of us. And if it's written for us, InshaAllah, one day we'll look back at this building phase and smile at how far we've come 🤲🏻
+
+I'm building myself today, but I hope that one day we can look at each other and say, "We made it."
+
+Can you wait for me? You know my aadat. Once again, I'm saying I'm not forcing you. This is completely your choice. When you think you want to leave, just know your happiness matters to me.
+
+You're thinking that I'm ignoring you, but no, I never am. Tujj phn meleso time manj mlm ho ra neee, sorry. There are some important things I want to tell you, but not in a message.
+
+I miss you maaaaaaaa. I love you ❤️
+
+May Allah always protect you and keep that beautiful smile on your face. ❤️`,
+
+  signature: "With love, and a prayer for our future ♡"
+};
+
+const STORAGE_KEY = "suhanaLoveNote";
+
+const $ = id => document.getElementById(id);
+
+const fields = {
+  title: $("titleInput"),
+  intro: $("introInput"),
+  heading: $("headingInput"),
+  letter: $("letterInput"),
+  signature: $("signatureInput")
+};
+
+let current = { ...original };
+
+function render() {
+  $("openingTitle").textContent = current.title;
+  $("openingIntro").textContent = current.intro;
+  $("letterHeading").textContent = current.heading;
+  $("letterText").textContent = current.letter;
+  $("signature").textContent = current.signature;
+
+  fields.title.value = current.title;
+  fields.intro.value = current.intro;
+  fields.heading.value = current.heading;
+  fields.letter.value = current.letter;
+  fields.signature.value = current.signature;
+}
+
+function readEditor() {
+  return {
+    title: fields.title.value,
+    intro: fields.intro.value,
+    heading: fields.heading.value,
+    letter: fields.letter.value,
+    signature: fields.signature.value
+  };
+}
+
+function previewEditor() {
+  current = readEditor();
+  render();
+  $("letterSection").style.display = "block";
+}
+
+function saveEdits() {
+  current = readEditor();
+
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
+    $("saveStatus").textContent =
+      "Saved in this browser only. To share these edits, publish them in index.html on GitHub.";
+  } catch (error) {
+    $("saveStatus").textContent =
+      "Your browser could not save these edits. You can still preview the letter.";
+  }
+
+  render();
+  $("letterSection").style.display = "block";
+}
+
+function restorePublishedMessage() {
+  current = { ...original };
+
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (error) {
+    /* The published default still works if storage is unavailable. */
+  }
+
+  render();
+  $("saveStatus").textContent = "Restored the published message.";
+  $("letterSection").style.display = "block";
+}
+
+function loadLocalEdits() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+
+    const parsed = JSON.parse(saved);
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return;
+
+    for (const key of Object.keys(original)) {
+      if (typeof parsed[key] === "string") {
+        current[key] = parsed[key];
+      }
+    }
+  } catch (error) {
+    current = { ...original };
+  }
+}
+
+$("openButton").addEventListener("click", () => {
+  $("letterSection").style.display = "block";
+  $("letterSection").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+$("editorButton").addEventListener("click", () => {
+  const editor = $("editor");
+  editor.style.display = editor.style.display === "block" ? "none" : "block";
+});
+
+$("saveButton").addEventListener("click", saveEdits);
+$("previewButton").addEventListener("click", previewEditor);
+$("restoreButton").addEventListener("click", restorePublishedMessage);
+
+/* Live preview while editing. */
+for (const field of Object.values(fields)) {
+  field.addEventListener("input", () => {
+    current = readEditor();
+    render();
+  });
+}
+
+/* Gentle falling petals. */
+for (let i = 0; i < 18; i++) {
+  const petal = document.createElement("div");
+  petal.className = "petal";
+  petal.textContent = Math.random() > 0.5 ? "♡" : "✿";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = (9 + Math.random() * 12) + "s";
+  petal.style.animationDelay = (-Math.random() * 18) + "s";
+  petal.style.fontSize = (12 + Math.random() * 15) + "px";
+  document.body.appendChild(petal);
+}
+
+/*
+  Load this published message by default on every device.
+  Local edits are restored only on the browser where they were saved.
+*/
+loadLocalEdits();
+render();
+</script>
 </body>
 </html>
